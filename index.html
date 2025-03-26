@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eghe Iyobosa Aspiring software developer building AI-powered tools and full-stack apps. View projects and contact info.">
   <title>Eghe Iyobosa | Portfolio</title>
   <style>
     :root {
@@ -17,7 +18,6 @@
       --accent: #4dabf7;
       --card-bg: #1e1e1e;
     }
-
     * {
       margin: 0;
       padding: 0;
@@ -39,9 +39,17 @@
     header h1 {
       font-size: 2rem;
     }
+    header img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: 10px;
+      border: 3px solid var(--accent);
+    }
     header p {
+      margin-top: 10px;
       color: var(--text);
-      margin-top: 5px;
     }
     nav {
       margin-top: 10px;
@@ -75,20 +83,16 @@
       color: var(--text);
       margin-bottom: 10px;
     }
-    .project {
-      margin-bottom: 20px;
+    .project, blockquote {
       background: var(--card-bg);
       padding: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
     }
     .project:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-    .project h3 {
-      margin-bottom: 5px;
     }
     footer {
       text-align: center;
@@ -96,7 +100,9 @@
       font-size: 0.9rem;
       color: var(--text);
     }
-
+    a {
+      color: var(--accent);
+    }
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -113,10 +119,12 @@
   <header>
     <h1>Eghe Iyobosa</h1>
     <p>Aspiring Software Developer</p>
+    <img src="profile.jpeg" alt="Eghe Iyobosa">
     <nav>
       <a href="#bio">Bio</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#pitch">Elevator Pitch</a>
+      <a href="#contact">Contact</a>
     </nav>
     <button id="darkToggle">Toggle Dark Mode</button>
   </header>
@@ -124,40 +132,49 @@
   <main>
     <section id="bio">
       <h2>About Me</h2>
-      <p>
-        Hi, I'm Eghe Iyobosa — an aspiring software developer with a deep curiosity for technology
+      <p>Hi, I'm Eghe Iyobosa an aspiring software developer with a deep curiosity for technology
         and a hunger to keep learning. I enjoy solving problems, building meaningful tools, and
-        exploring how software can improve our everyday lives.
-      </p>
-      <p>
-        Right now, I’m focused on learning full-stack development and building my portfolio.
-        I believe in the power of consistency, creativity, and continuous growth.
-      </p>
+        exploring how software can improve our everyday lives.</p>
+      <p>I’m focused on full-stack development and AI tools. I believe in consistency, creativity, and continuous growth.</p>
     </section>
 
     <section id="portfolio">
       <h2>My Work</h2>
       <div class="project">
         <h3>Smart Recall App</h3>
-        <p>A simple note-taking app powered by AI, designed to never let a great idea slip away.<br>
+        <p>An AI-powered note-taking app built to ensure you never lose a great idea. <br>
         <strong>Tech:</strong> React, TailwindCSS, Local Storage, GPT Integration</p>
       </div>
       <div class="project">
         <h3>Portfolio Website</h3>
-        <p>This very site you're on! Designed to be responsive and modern, with smooth navigation.<br>
+        <p>This responsive personal site you're browsing right now! <br>
         <strong>Tech:</strong> HTML, CSS, JavaScript</p>
       </div>
       <div class="project">
-        <h3>BakMe - AI Assistant App (Coming Soon)</h3>
-        <p>A personal AI assistant focused on privacy-first reminders and memory tools.<br>
+        <h3>BakMe – AI Assistant App (Coming Soon)</h3>
+        <p>An upcoming personal AI assistant focused on privacy-first reminders and memory tools. <br>
         <strong>Tech:</strong> React Native, AI APIs, Local Data Encryption</p>
       </div>
     </section>
 
     <section id="pitch">
       <h2>Elevator Pitch</h2>
-      <p>🎥 Elevator Pitch – Coming Soon!<br>
-         Stay tuned for a quick video about who I am, what I’m building, and why it matters.</p>
+      <p>Hello! I'm Eghe Iyobosa, a passionate software developer focused on building helpful, user-friendly apps.
+        I combine curiosity, creativity, and code to solve real-world problems. I'm looking for opportunities to collaborate,
+        contribute, and grow in a fast-paced tech environment.</p>
+    </section>
+
+    <section id="testimonials">
+      <h2>What People Say</h2>
+      <blockquote>"Eghe is a fast learner and team player. His passion for clean, functional design is impressive." – Peer from ALX</blockquote>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Email: iyobosaeghe8@gmail.com</p>
+      <p><a href="www.linkedin.com/in/eghe-iyobosa-7a6ab3194">LinkedIn</a> | <a href="https://github.com/eghosa95">GitHub</a></p>
+      <p><a href="https://drive.google.com/file/d/1kMvInv_abw1ek37y1zTU2xYY-N5bWarM/view
+">Download My Resume</a></p>
     </section>
   </main>
 
@@ -166,8 +183,7 @@
   </footer>
 
   <script>
-    const toggleButton = document.getElementById('darkToggle');
-    toggleButton.addEventListener('click', () => {
+    document.getElementById('darkToggle').addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
     });
   </script>
