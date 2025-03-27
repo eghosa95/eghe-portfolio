@@ -127,7 +127,13 @@
       <a href="#contact">Contact</a>
     </nav>
     <button id="darkToggle">Toggle Dark Mode</button>
+
   </header>
+<section id="time">
+  <p>Current Time: <span id="currentTime">Loading...</span></p>
+  <p>Last Updated: <span id="lastUpdated">Loading...</span></p>
+</section>
+
 
   <main>
     <section id="bio">
@@ -150,11 +156,14 @@
         <p>This responsive personal site you're browsing right now! <br>
         <strong>Tech:</strong> HTML, CSS, JavaScript</p>
       </div>
-      <div class="project">
-        <h3> Current Project – AI Assistant App (Coming Soon)</h3>
-        <p>An upcoming personal AI assistant focused on privacy-first reminders and memory tools. <br>
-        <strong>Tech:</strong> React Native, AI APIs, Local Data Encryption</p>
-      </div>
+      <a href="Bakme.html" target="_blank" style="text-decoration: none; color: inherit;">
+  <div class="project">
+    <h3>BakMe – AI Assistant App (Coming Soon)</h3>
+    <p>An upcoming personal AI assistant focused on privacy-first reminders and memory tools. <br>
+    <strong>Tech:</strong> React Native, AI APIs, Local Data Encryption</p>
+  </div>
+</a>
+
     </section>
 
     <section id="pitch">
@@ -183,9 +192,45 @@
   </footer>
 
   <script>
-    document.getElementById('darkToggle').addEventListener('click', () => {
+   const darkToggleButton = document.getElementById('darkToggle');
+
+    darkToggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-    });
+      if (document.body.classList.contains('dark-mode')) {
+        darkToggleButton.textContent = 'Toggle Light Mode';
+      } else {
+        darkToggleButton.textContent = 'Toggle Dark Mode';
+      }
+   
+ });
+
+ 
   </script>
+
+
+<script>
+  // Display current time
+  function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById('currentTime').textContent = timeString;
+  }
+  setInterval(updateTime, 1000); // Update every second
+
+  // Display last updated time
+  const lastUpdated = new Date(document.lastModified);
+  const formattedUpdated = lastUpdated.toLocaleString('en-US', { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  document.getElementById('lastUpdated').textContent = formattedUpdated;
+</script>
+
+
 </body>
 </html>
