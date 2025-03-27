@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BakMe Beta – Join the Waitlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --text: #111827;
+      --accent: #2563eb;
+      --accent-dark: #1e40af;
+      --white: #fff;
+    }
+    [data-theme="dark"] {
+      --bg: #1f2937;
+      --text: #f3f4f6;
+      --accent: #3b82f6;
+      --accent-dark: #1d4ed8;
+      --white: #111827;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; transition: background-color 0.3s, color 0.3s; }
+    header { background-color: var(--accent-dark); color: var(--text); padding: 2rem; text-align: center; animation: fadeInDown 1s ease-out; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; color: #d1d5db; }
+    .section { max-width: 800px; margin: 2rem auto; padding: 1rem; animation: fadeIn 1.2s ease-in; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .feature { background: var(--white); padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .feature:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .feature h3 { color: var(--accent); margin-bottom: 0.5rem; }
+    form { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-top: 2rem; animation: fadeInUp 1.2s ease-in; }
+    form input, form select, form button { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #d1d5db; }
+    form button { background-color: var(--accent); color: white; font-weight: 600; border: none; cursor: pointer; transition: background-color 0.2s ease; }
+    form button:hover { background-color: var(--accent-dark); }
+    .message { display: none; text-align: center; padding: 1rem; margin-top: 1rem; border-radius: 6px; font-weight: bold; }
+    .message.success { background-color: #d1fae5; color: #065f46; }
+    .message.error { background-color: #fee2e2; color: #991b1b; }
+    .toggle-theme { position: fixed; top: 20px; right: 20px; background: var(--accent); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+    footer { text-align: center; font-size: 0.9rem; color: #6b7280; padding: 2rem 1rem; margin-top: 2rem; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+  <header>
+    <h1>BakMe – Your AI Memory, Reimagined</h1>
+    <p>Recall what matters. Think ahead. Stay private.</p>
+  </header>
+
+  <section class="section">
+    <h2 style="text-align:center; margin-bottom: 1.5rem;">Key Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Smart Recall</h3>
+        <p>BakMe surfaces your most relevant notes when you need them—no digging required.</p>
+      </div>
+      <div class="feature">
+        <h3>Privacy First</h3>
+        <p>All your data stays with you. Local storage and encrypted backups—only when you say so.</p>
+      </div>
+      <div class="feature">
+        <h3>Offline-Ready</h3>
+        <p>BakMe works without internet. Your notes, anywhere, anytime.</p>
+      </div>
+      <div class="feature">
+        <h3>Emotion Aware</h3>
+        <p>BakMe understands your tone to help guide your day with empathy and intelligence.</p>
+      </div>
+      <div class="feature">
+        <h3>Task + Memory Fusion</h3>
+        <p>Convert your notes into tasks in one tap. AI suggests what’s next.</p>
+      </div>
+      <div class="feature">
+        <h3>Biometric Vault</h3>
+        <p>Keep sensitive thoughts locked down with fingerprint or Face ID.</p>
+      </div>
+    </div>
+
+    <form id="waitlistForm">
+      <h2 style="margin-bottom: 1rem;">Join the Beta Waitlist</h2>
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <select id="platform" required>
+        <option value="">Platform Preference</option>
+        <option value="iOS">iOS</option>
+        <option value="Android">Android</option>
+        <option value="Both">Both</option>
+      </select>
+      <input type="text" id="reason" placeholder="Why are you excited to try BakMe? (optional)" />
+      <button type="submit">Join the Beta</button>
+      <div id="formMessage" class="message"></div>
+    </form>
+  </section>
+
+  <footer>
+    <p>Made with 🔒 by BakMe Team | Privacy First | 2025</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    }
+
+    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const platform = document.getElementById('platform').value;
+      const reason = document.getElementById('reason').value.trim();
+      const messageEl = document.getElementById('formMessage');
+
+      if (!name || !email || !platform) {
+        messageEl.textContent = 'Please fill in all required fields.';
+        messageEl.className = 'message error';
+        messageEl.style.display = 'block';
+        return;
+      }
+
+      const mailtoLink = `mailto:your.email@gmail.com?subject=BakMe Beta Signup&body=Name: ${name}%0AEmail: ${email}%0APlatform: ${platform}%0AReason: ${reason}`;
+      window.location.href = mailtoLink;
+
+      messageEl.textContent = `Thanks ${name}, your email client will open to complete sign-up.`;
+      messageEl.className = 'message success';
+      messageEl.style.display = 'block';
+      document.getElementById('waitlistForm').reset();
+    });
+  </script>
+</body>
+</html>
